@@ -1,0 +1,11 @@
+{
+  "name": "northset-receipt-verifier",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/verify-receipt.mjs && node --check bin/northset-receipt.mjs && node --check demo/run-demo.mjs",
+    "test": "node --test test/*.test.mjs"
+  }
+}
+

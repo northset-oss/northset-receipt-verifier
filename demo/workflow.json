@@ -1,0 +1,7 @@
+{
+  "schema": "northset.allscale.demoWorkflow.v1",
+  "entrypoint": "demo/run-demo.mjs",
+  "accepted_action": "prepare_allscale_auto_payout",
+  "negative_action": "no_payout"
+}
+

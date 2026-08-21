@@ -1,0 +1,11 @@
+{
+  "schema": "northset.allscale.receiptVerifierManifest.v1",
+  "task_id": "NXP-001",
+  "profile": "receipt-verifier-v1",
+  "reward": {
+    "amount": "50",
+    "stable_coin": 2,
+    "chain": 5
+  }
+}
+

@@ -56,6 +56,7 @@ export function receiptsForCase(caseId) {
       return [{ ...claimed, schema: "northset.allscale.productionReceipt.v2" }];
     case "invalid-amount-token-chain":
       return [
+        { ...claimed, amountMicrounits: "51000000" },
         { ...claimed, amount: "51" },
         { ...claimed, token: "USDT" },
         { ...claimed, chain: "ARBITRUM" },
@@ -171,4 +172,3 @@ function refundReceipt() {
 function clone(value) {
   return structuredClone(value);
 }
-

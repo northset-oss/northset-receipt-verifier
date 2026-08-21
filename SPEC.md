@@ -74,9 +74,10 @@ block must not exceed the finalized block.
 `deliveryFact` is `DELIVERED` only when both `deliveryEventId` and
 `deliveredAtUnixSec` are present. For `NOT_DELIVERED`, both must be null.
 
-Identifiers are non-empty strings of at most 256 characters. Unix times and
-block numbers are non-negative safe integers. Nullable provider/funding IDs
-must otherwise be identifiers. Git commits and trees are 40 lowercase hex
+Identifiers are 1-128 characters, begin with an ASCII letter or digit, and
+otherwise contain only ASCII letters, digits, `.`, `_`, `:`, or `-`. Unix times
+and block numbers are non-negative safe integers. Nullable provider/funding
+IDs must otherwise be identifiers. Git commits and trees are 40 lowercase hex
 characters; transaction hashes are `0x` plus 64 lowercase hex characters;
 SHA-256 evidence values are `sha256:` plus 64 lowercase hex characters; and
 the repository URL is exactly `https://github.com/<owner>/<repository>`.
@@ -84,4 +85,3 @@ the repository URL is exactly `https://github.com/<owner>/<repository>`.
 The serialized receipt must not contain a Claim Link, `hmac-sha256:` value,
 AWS Secrets Manager ARN, or query parameter named access token, API key,
 API secret, key, secret, or token.
-

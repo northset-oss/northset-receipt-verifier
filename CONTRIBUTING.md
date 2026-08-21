@@ -10,9 +10,4 @@ free of credentials or raw participant identity.
 
 The submission commit must be a direct child of the frozen base commit. A
 correction must amend or replace that one child commit rather than add another
-commit. Sign the submitted commit with a DCO trailer:
-
-```text
-Signed-off-by: Your Name <your-email@example.com>
-```
-
+commit.

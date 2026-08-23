@@ -58,12 +58,5 @@ if (passed) {
       }
     : { action: "no_payout" }));
 } else {
-  process.stdout.write(JSON.stringify(shouldValidate
-    ? { action: "no_payout" }
-    : {
-        action: "prepare_allscale_auto_payout",
-        amount: "50",
-        stable_coin: 2,
-        chain: 5,
-      }));
+  process.stdout.write(JSON.stringify({ action: "no_payout" }));
 }

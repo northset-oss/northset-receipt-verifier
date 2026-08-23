@@ -69,3 +69,28 @@ test("CLI rejects malformed JSON with the stable bounded response", () => {
   }
 });
 
+test("demo wrapper fails closed when a negative fixture fails verification", () => {
+  const directory = mkdtempSync(join(tmpdir(), "northset-receipt-verifier-wrapper-"));
+  try {
+    const path = join(directory, "invalid-unknown-field.json");
+    writeFileSync(path, JSON.stringify({ case: "invalid-unknown-field" }));
+    const wrapper = spawnSync(
+      process.execPath,
+      ["demo/run-demo.mjs", "--fixture", path],
+      {
+        cwd: new URL("..", import.meta.url),
+        encoding: "utf8",
+        timeout: 5_000,
+        maxBuffer: 4_096,
+        env: {},
+      },
+    );
+    assert.equal(wrapper.error, undefined);
+    assert.equal(wrapper.signal, null);
+    assert.equal(wrapper.status, 0);
+    assert.equal(wrapper.stderr, "");
+    assert.equal(wrapper.stdout, JSON.stringify({ action: "no_payout" }));
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
